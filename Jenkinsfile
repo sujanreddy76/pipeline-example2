@@ -17,7 +17,7 @@ pipeline {
                 script{
                     def course = "k8s"
                     if (course == "k8s") 
-                        println("Thanks for enrolling in K8S")
+                        println("Thanks for enrolling in ${course}")
                     else
                         println("Do enroll in k8s")    
 
