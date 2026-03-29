@@ -19,7 +19,7 @@ pipeline {
                     if (course == "k8s") 
                         println("Thanks for enrolling in ${course}")
                     else
-                        println("Do enroll in k8s")    
+                        println("Do enroll in ${course}")    
 
                 }
             }
