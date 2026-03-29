@@ -9,6 +9,7 @@ pipeline {
                     echo "welcome to jenkins"
                     error "I will print error message"
                 }
+                error "Message after 3 times"
                 
             }
 
