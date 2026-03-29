@@ -14,6 +14,7 @@ pipeline {
         stage('Sonar'){
             steps{
                 echo 'Executing sonar block'
+                sh 'hajasdxaw'
             }
         }
     }
