@@ -1,4 +1,3 @@
-//script-block
 pipeline {
     agent {
         label 'java-label'
@@ -15,11 +14,13 @@ pipeline {
         stage('Scriptblock'){
             steps{
                 script{
-                    def course = "k8s"
+                    def course = "jenkinsPipeline"
                     if (course == "k8s") 
-                        println("Thanks for enrolling in ${course}")
+                         println("Thanks for enrolling in ${course}")
+                        // println("Thanks for enrolling in ${course}")
                     else
                         println("Do enroll in ${course}")    
+                    sleep 15 //equivalent to: sh 'sleep 15'    
 
                 }
             }
