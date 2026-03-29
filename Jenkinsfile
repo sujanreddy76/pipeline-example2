@@ -36,7 +36,7 @@ pipeline {
         stage('Scriptblock'){
             steps{
                 script{
-                    def course = "jenkinsPipeline"\
+                    def course = "jenkinsPipeline"
                     if (course == "k8s") 
                         println("Thanks for enrolling in K8S")
                     else
