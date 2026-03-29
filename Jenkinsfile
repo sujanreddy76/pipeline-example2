@@ -1,8 +1,6 @@
 //tools
 pipeline {
-    agent {
-        label 'java-label'
-    }
+    agent any
     tools{
         maven 'Maven_3.8.9' //this name should match to the name created under Manage jenkins->tools section
     }
