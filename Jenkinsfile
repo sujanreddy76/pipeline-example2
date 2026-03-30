@@ -41,7 +41,7 @@ pipeline {
             when{
                 allOf {
                     branch 'prod'
-                    environment name: DEPLOY_TO, value: 'production'
+                    environment name: 'DEPLOY_TO', value: 'production'
                 }
             }
             steps {
