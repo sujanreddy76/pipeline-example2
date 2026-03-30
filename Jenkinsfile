@@ -4,7 +4,7 @@ pipeline {
     }
     parameters {
         choice (name: 'deployToProd',
-                choices: 'no\nyes'
+                choices: 'no\nyes',
                 description: 'Deploy to Production'
         )
 
