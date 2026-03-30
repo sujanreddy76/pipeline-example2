@@ -1,3 +1,4 @@
+//environment: environment block can be specified at the the pipeline level or stage level
 pipeline {
     agent {
         label 'java-label'
@@ -5,6 +6,7 @@ pipeline {
     environment{
         NAME="Sujan"
         COURSE="k8s"
+        CLOUD="GCP"
     }
     stages{
         stage('Build'){
