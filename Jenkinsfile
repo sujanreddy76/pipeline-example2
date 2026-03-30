@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo "Welcome ${params.PERSON}"
                 echo "You are enrolled for ${params.COURSE}"
-                echo "You are certified in GCP: ${params.booleanParam}"
+                echo "You are certified in GCP: ${params.CLOUD}"
             }
         }
     }
