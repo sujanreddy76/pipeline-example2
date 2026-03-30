@@ -9,8 +9,11 @@ pipeline {
                 sh 'pwd'
                 //pull nginx and change the name to myOwnName and push to registry
                 sh 'docker pull nginx'
-                // docker tag nginx i27devopsb6/nginx:b6
-                // docker push <url>
+                echo '**********Printing the images before changing the tag**********'
+                sh 'docker images'
+                sh 'docker tag nginx sujanreddy76/nginx:v1'
+                echo '**********Printing the images after changing the tag**********'
+                sh 'docker images'
             }
         }
     }
