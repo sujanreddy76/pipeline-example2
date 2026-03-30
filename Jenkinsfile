@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        'java-label'
+        label 'java-label'
     }
     parameters {
         choice (name: 'deployToProd',
