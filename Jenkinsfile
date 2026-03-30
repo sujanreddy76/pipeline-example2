@@ -1,41 +1,18 @@
 pipeline {
-    agent {
+    agent{
         label 'java-label'
     }
-    stages {
-        stage('Build'){
+    parameters{
+        string (name: 'PERSON' , defaultValue: 'Sujan', description: 'Enter your name')
+        choice (name: 'COURSE', choises: ['k8s', 'jenkins', 'docker'], description: 'Select the course')
+        booleanparam (name: 'CLOUD', defaultValue: true, description: 'Do you want to be certified in GCP??')
+    }
+    stages{
+        stage('Firststage') {
             steps {
-                 echo 'Building the project'
-            }
-        }
-        stage('Scans'){
-            parallel{
-                stage('Sonar'){
-                    steps {
-                        echo 'Running sonar scan'
-                        sleep 10
-                    }
-                    
-                }
-                stage('Checkmarx'){
-                    steps {
-                        echo 'Running checkmarx scan'
-                        sleep 10
-                    }
-                    
-                }
-                stage('Fortify'){
-                    steps {
-                        echo 'Running fortify scan'
-                        sleep 10
-                    }
-                    
-                }
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying the project'
+                echo "Welcome ${params.PERSON}"
+                echo "You are enrolled for ${params.COURSE}"
+                echo "You are certified in GCP: ${params.booleanparam}"
             }
         }
     }
