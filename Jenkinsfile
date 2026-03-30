@@ -3,7 +3,7 @@ pipeline {
         label 'java-label'
     }
     environment {
-        DEPLOY_TO='production'
+        DEPLOY_TO='xyz'
     }
     stages{
         stage('Build'){
