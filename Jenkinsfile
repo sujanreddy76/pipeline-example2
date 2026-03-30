@@ -3,7 +3,7 @@ pipeline {
         label 'java-label'
     }
     environment {
-        DEPLOY_TO='production'
+        DEPLOY_TO='xyz'
     }
     stages {
         stage('Bulid') {
@@ -39,7 +39,7 @@ pipeline {
         }
         stage('Deploy to Prod Env') {
             when{
-                allOf {
+                anyOf {
                     branch 'prod'
                     environment name: 'DEPLOY_TO', value: 'production'
                 }
