@@ -1,18 +1,30 @@
 pipeline {
-    agent{
-        label 'java-label'
+    agent {
+        'java-label'
     }
-    parameters{
-        string (name: 'PERSON' , defaultValue: 'Sujan', description: 'Enter your name')
-        choice (name: 'COURSE', choices: ['k8s', 'jenkins', 'docker'], description: 'Select the course')
-        booleanParam (name: 'CLOUD', defaultValue: true, description: 'Do you want to be certified in GCP??')
+    parameters {
+        choice (name: 'deployToProd',
+                choices: 'no\nyes'
+                description: 'Deploy to Production'
+        )
+
     }
-    stages{
-        stage('Firststage') {
-            steps {
-                echo "Welcome ${params.PERSON}"
-                echo "You are enrolled for ${params.COURSE}"
-                echo "You are certified in GCP: ${params.CLOUD}"
+    stages {
+        stage('Build'){
+            steps{
+                echo 'Building the application'
+            }
+
+        }
+        stage('DeployToProd'){
+            when {
+                expression {
+                    params.deployToProd == 'yes'
+                }
+            }
+            steps{
+               echo 'Deploying to production'
+
             }
         }
     }
