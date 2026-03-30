@@ -1,22 +1,14 @@
-//environment: environment block can be specified at the the pipeline level or stage level
 pipeline {
-    agent {
+    agent{
         label 'java-label'
     }
-    environment{
-        NAME="Sujan"
-        COURSE="k8s"
-        CLOUD="GCP"
-    }
     stages{
-        stage('Build'){
-            environment{
-                CLOUD="AWS"
-            }
+        stage('DockerBP') {
             steps {
-                echo "Welcome ${NAME}"
-                echo "You are enrolled for ${COURSE} course"
-                echo "You are certified in ${CLOUD}"
+                //pull nginx and change the name to myOwnName and push to registry
+                docker pull nginx
+                // docker tag nginx i27devopsb6/nginx:b6
+                // docker push <url>
             }
         }
     }
