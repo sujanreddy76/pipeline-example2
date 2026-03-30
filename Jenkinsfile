@@ -4,7 +4,7 @@ pipeline {
     }
     parameters{
         string (name: 'PERSON' , defaultValue: 'Sujan', description: 'Enter your name')
-        choice (name: 'COURSE', choises: ['k8s', 'jenkins', 'docker'], description: 'Select the course')
+        choice (name: 'COURSE', choices: ['k8s', 'jenkins', 'docker'], description: 'Select the course')
         booleanParam (name: 'CLOUD', defaultValue: true, description: 'Do you want to be certified in GCP??')
     }
     stages{
