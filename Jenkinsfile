@@ -5,6 +5,7 @@ pipeline {
     stages{
         stage('DockerBP') {
             steps {
+                sh 'whoami'
                 sh 'pwd'
                 //pull nginx and change the name to myOwnName and push to registry
                 sh 'docker pull nginx'
