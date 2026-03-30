@@ -1,14 +1,20 @@
-//tools
 pipeline {
-    agent any
-    tools{
-        maven 'Maven_3.8.9' //this name should match to the name created under Manage jenkins->tools section
+    agent {
+        label 'java-label'
+    }
+    environment{
+        NAME="Sujan"
+        COURSE="k8s"
     }
     stages{
-        stage('Maven version') {
+        stage('Build'){
+            environment{
+                CLOUD="AWS"
+            }
             steps {
-                echo 'Welcome to tools demo'
-                sh 'mvn --version'
+                echo "Welcome ${NAME}"
+                echo "You are enrolled for ${COURSE} course"
+                echo "You are certified in ${CLOUD}"
             }
         }
     }
