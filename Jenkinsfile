@@ -2,13 +2,16 @@ pipeline {
     agent{
         label 'java-label'
     }
-    environment{
-        DOCKER_CREDS=credentials('Dockerhub_Creds') //We will get username and password(OURVARNAME_USR,OURVARNAME_PSW)
+    environment {
+        DEPLOY_TO='production'
     }
     stages{
-        stage('DockerBP') {
+        stage('Build'){
+            when{
+                environment name: 'DEPLOY_TO', value: 'production'
+            }
             steps {
-                echo 'Deploying from main branch'
+                echo 'Building the project'
             }
         }
     }
